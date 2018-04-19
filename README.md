@@ -22,7 +22,7 @@ parsimony/src/tmd/
 
 and read ```tmd_doc.pdf``` or ```tmd_readme.pdf```, respectively. ```tmd_to_tm.pdf``` explains the TMD-to-Turing-Machine compilation process. 
 
-Finally, to run and understand the Turing machine's you've generated, you'll need to navigate to:
+Finally, to run and understand the Turing machines you've generated, you'll need to navigate to:
 
 ```
 parsimony/src/tm/

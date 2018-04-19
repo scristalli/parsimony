@@ -7,10 +7,10 @@ from state import *
 
 def getStateName(line):
     colonLoc = string.find(line, ":")
-    
+
     stateName = line[:colonLoc]
 
-    return stateName    
+    return stateName
 
 if __name__ == "__main__":
     sttm = SingleTapeTuringMachine(sys.argv[-1], ["_", "1", "H", "E"])
@@ -84,7 +84,7 @@ def parseMachine(path, alphabet):
                 currentStateBeingModified.setHeadMove(symbol, headMove)
                 currentStateBeingModified.setWrite(symbol, write)
 
-    return startState, stateDictionary
+    return startState, stateDictionary, listOfRealStates
 
 def stateDictionariesToLists(stateDictionary, alphabet, startState):
     simulationStates = {}
@@ -100,17 +100,19 @@ def stateDictionariesToLists(stateDictionary, alphabet, startState):
     return simulationStates[startState]
 
 class SingleTapeTuringMachine(object):
-    def __init__(self, path, alphabet=["_", "1", "H", "E"]):        
+    def __init__(self, path, alphabet=["_", "1", "H", "E"]):
         self.tape = Tape(None, alphabet[0])
 
-        startState, stateDictionary = parseMachine(
+        startState, stateDictionary, listOfRealStates = parseMachine(
                 path, alphabet)
         startState = stateDictionariesToLists(
                 stateDictionary, alphabet, startState)
         self.startState = startState
+        self.listOfRealStates = listOfRealStates
+
 
     def run(self, quiet=False, limited=False, numSteps=float("Inf"), output=None):
-        
+
         state = self.startState
         tape = self.tape
         ordsymbol = tape.readSymbolOrd()
@@ -122,7 +124,7 @@ class SingleTapeTuringMachine(object):
         while stepCounter < numSteps:
             if not quiet and ((stepCounter % 10000 == 0) or (not limited)):
                 self.printTape(state, -2, 340, output)
-            
+
             stepCounter += 1
 
             if state.isSimpleState():
@@ -158,10 +160,10 @@ class SingleTapeTuringMachine(object):
 
         if not halted:
             print "Turing machine ran for", numSteps, "steps without halting."
-    
+
     def printTape(self, state, start, end, output):
         if output == None:
-        
+
             print state.stateName
 
             self.tape.printTape(start, end)
@@ -170,7 +172,7 @@ class SingleTapeTuringMachine(object):
             output.write(state.stateName + "\n")
 
             self.tape.printTape(start, end, output)
-#           output.write("--------------------------------------\n")    
+#           output.write("--------------------------------------\n")
 
 
 class SimulationState(object):
@@ -215,6 +217,9 @@ class SimulationState(object):
 
     def isSimpleState(self):
         return False
+
+    def isState(self):
+        return True
 
 class Tape(object):
     # By convention the first symbol in the alphabet is the initial symbol
@@ -305,10 +310,10 @@ class Tape(object):
                 headString.append(" ")
 
             tapeString.append(self._readSymbol(i)[0])
-        
+
         if not self.name == None:
             tapeString.append(" " + self.name)
-        
+
         headString = "".join(headString)
         tapeString = "".join(tapeString)
         return headString + "\n" + tapeString + "\n"
