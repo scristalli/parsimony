@@ -7,3 +7,4 @@ src/tm/tm4/tm4_histories/*.txt
 *.DS_STORE
 *.class
 *.java
+venv

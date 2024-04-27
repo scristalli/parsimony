@@ -11,7 +11,7 @@ import sys
 # recommended that you debug it using laconic_interpreter.py!
 
 def pront(x):
-    print x
+    print(x)
 
 try:
     fileName = sys.argv[1]
@@ -28,8 +28,8 @@ dirName = "../../tmd/tmd_dirs/" + fileName
 if not os.path.exists(dirName + "/"):
     os.system("mkdir " + dirName)
 
-print "Compiling to TMD..."
+print("Compiling to TMD...")
 os.system("python compiler_helper.py ../laconic_files/" + fileName + ".lac")
-print "Importing dependencies..."
+print("Importing dependencies...")
 os.system("python importer.py " + dirName)
-print "Done!"
+print("Done!")

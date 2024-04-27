@@ -105,46 +105,46 @@ class SingleTapeTuringMachine:
 			stepCounter += 1
 
 			if self.state.stateName == "ERROR":
-				print "Turing machine threw error!"
+				print("Turing machine threw error!")
 				halted = True
 				break
 
 			if self.state.stateName == "ACCEPT":
-				print "Turing machine accepted."
+				print("Turing machine accepted.")
 				halted = True
 				break
         
 			if self.state.stateName == "REJECT":
-				print "Turing machine rejected."
+				print("Turing machine rejected.")
 				halted = True
 				break
 		
 			if self.state.stateName == "HALT":
-				print "Turing machine halted."
+				print("Turing machine halted.")
 				halted = True
 				break
 				
 			if self.state.stateName == "OUT":
-				print "Turing machine execution incomplete: reached out state."
-				print "Perhaps this Turing machine wants to be melded with another machine."
+				print("Turing machine execution incomplete: reached out state.")
+				print("Perhaps this Turing machine wants to be melded with another machine.")
 
 			symbol = self.tape.readSymbol()
 
 			if not self.state.getHeadMove(symbol) in ["L", "R", "-"]:
-				print "bad head move", self.state.getHeadMove(symbol), "in state", self.state.stateName
+				print("bad head move", self.state.getHeadMove(symbol), "in state", self.state.stateName)
 				raise
 
 			self.tape.writeSymbol(self.state.getWrite(symbol))
-			self.tape.moveHead(self.state.getHeadMove(symbol))  
-			self.state = self.state.getNextState(symbol)     
+			self.tape.moveHead(self.state.getHeadMove(symbol))
+			self.state = self.state.getNextState(symbol)
 
 		if not halted:
-			print "Turing machine ran for", numSteps, "steps without halting."
+			print("Turing machine ran for", numSteps, "steps without halting.")
 	
 	def printTape(self, start, end, output):
 		if output == None:
 		
-			print self.state.stateName
+			print(self.state.stateName)
 
 			self.tape.printTape(start, end)
 #			print "--------------------------------------"
@@ -180,7 +180,7 @@ class Tape:
         elif direction == "-":
             pass
         else:
-            print direction
+            print(direction)
             raise
 
     def continueTape(self):
@@ -206,8 +206,8 @@ class Tape:
             tapeString += " " + self.name
 
         if output == None:
-            print headString
-            print tapeString
+            print(headString)
+            print(tapeString)
         else:		
             output.write(headString + "\n")
             output.write(tapeString + "\n")

@@ -4,7 +4,7 @@ from LaconicListener import LaconicListener
 # run through a Laconic program, executing the commands on the fly as though it was a standard language.        
         
 def pront(x):
-    print x
+    print(x)
 
 class Function:
     def __init__(self, args, prog):
@@ -299,7 +299,7 @@ class CodeExecutor(LaconicListener):
                 try:
                     assert secondNum != 0
                 except:
-                    print "Error: division by zero"
+                    print("Error: division by zero")
                     raise
             
                 return firstNum / secondNum
@@ -308,7 +308,7 @@ class CodeExecutor(LaconicListener):
                 try:
                     assert secondNum != 0
                 except:
-                    print "Error: division by zero"
+                    print("Error: division by zero")
                     raise
             
                 return firstNum % secondNum                

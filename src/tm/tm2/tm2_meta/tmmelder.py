@@ -22,7 +22,7 @@ def convertStatesToString(listOfStates, output):
         try:
             assert (not state.stateName in statesIveAlreadyPrinted)
         except AssertionError:
-            print state.stateName
+            print(state.stateName)
             raise
         
         statesIveAlreadyPrinted[state.stateName] = None

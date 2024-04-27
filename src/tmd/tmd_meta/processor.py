@@ -18,7 +18,7 @@ def main():
     try:
         functions = [string.strip(x) for x in open(path + "functions", "r").readlines()]
     except:  
-        print "No functions file found in directory " + path
+        print("No functions file found in directory " + path)
         raise 
 
     functionLabelDictionary, functionDictionary, _, _ = getFunctionLabelDictionary(functions, path)
@@ -29,7 +29,7 @@ def main():
     try:
         initValueString = string.strip(open(path + "initvar", "r").read()) + "H"
     except:
-        print "No initvar file found in directory " + path
+        print("No initvar file found in directory " + path)
         raise 
 
 ###################################################################

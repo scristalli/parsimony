@@ -24,7 +24,7 @@ def convertStatesToString(listOfStates, output):
         try:
             assert (not state.stateName in statesIveAlreadyPrinted)
         except AssertionError:
-            print state.stateName
+            print(state.stateName)
             raise
 
         statesIveAlreadyPrinted[state.stateName] = None
@@ -411,7 +411,7 @@ if __name__ == "__main__":
 
             for word in readResultDictionary:
 
-                if readResultDictionary[word].stateName == "HALT": print readResultDictionary[word].stateName
+                if readResultDictionary[word].stateName == "HALT": (readResultDictionary[word].stateName)
 
                 listOfStates.append(readResultDictionary[word])
 
@@ -434,6 +434,6 @@ if __name__ == "__main__":
 #   for outerState in tm.listOfRealStates:
 
 
-    print "State count:", len(listOfStates)
+    print("State count:", len(listOfStates))
 
     convertStatesToString(listOfStates, open("../../tm2/tm2_files/" + tmName + ".tm2", "w"))

@@ -28,7 +28,7 @@ def convertStatesToString(listOfStates, output):
         try:
             assert (not state.stateName in statesIveAlreadyPrinted)
         except AssertionError:
-            print state.stateName
+            print(state.stateName)
             raise
         
         statesIveAlreadyPrinted[state.stateName] = None
@@ -427,7 +427,7 @@ def introspect(codeStringInAB):
     
     foundCodeHead.set3("a", SimpleState("OUT"), "R", "a")
     
-    print "States in printer:", len(listOfStates)
+    print("States in printer:", len(listOfStates))
     
     convertStatesToString(listOfStates, open("../../tm/tm2/tm2_files/" + sys.argv[1] + "_prog.tm2", "w"))
     
@@ -484,7 +484,7 @@ if __name__ == "__main__":
     try:
         functions = [string.strip(x) for x in open(path + "functions", "r").readlines()]
     except:  
-        print "No functions file found in directory " + path
+        print("No functions file found in directory " + path)
         raise
 
     functionLabelDictionary, functionDictionary, _, _ = getFunctionLabelDictionary(functions, path)
@@ -511,7 +511,7 @@ if __name__ == "__main__":
             
     codeStringInAB = convertToAB(codeString)
     
-    print "Length of binary:", len(codeStringInAB)
+    print("Length of binary:", len(codeStringInAB))
         
 #    codeStringInAB = "bbbbb" + codeStringInAB[5:]
         

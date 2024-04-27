@@ -1,7 +1,7 @@
 from LaconicListener import LaconicListener
 
 def pront(x):
-    print x
+    print(x)
 
 def listSum(l):
     returnString = ""

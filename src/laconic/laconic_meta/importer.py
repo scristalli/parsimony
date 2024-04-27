@@ -3,7 +3,7 @@ import os
 import sys
 
 def pront(x):
-    print x
+    print(x)
 
 def incrDict(elt, dic):
     if elt in dic:
@@ -26,7 +26,7 @@ def importFuncs(targetDir, func="main"):
     global alreadyOpened
     global functionsTFF
 
-    print func
+    print(func)
 
 #    functionsTFF += func + "\n"
     

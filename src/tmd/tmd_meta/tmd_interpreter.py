@@ -11,7 +11,7 @@ from tmsim import *
 # to a Turing machine!
 
 def pront(x):
-    print x
+    print(x)
 
 class TuringMachineWithStack:
     def __init__(self, functions, path, functionLabelDictionary, functionLineDictionary, functionVariableDictionary, lineNumberToTextNumber, initVarString):

@@ -17,7 +17,7 @@ def convertStatesToString(listOfStates, output):
 		try:
 			assert (not state.stateName in statesIveAlreadyPrinted)
 		except:
-			print "duplicated state:", state.stateName
+			print("duplicated state:", state.stateName)
 			raise		
 
 		statesIveAlreadyPrinted[state.stateName] = None
@@ -67,7 +67,7 @@ def getFunctionLabelDictionary(functions, path):
                     try:
                         assert not label in functionLabelDictionary[function] 
                     except:
-                        print "Error: duplicate label", label, "on line", lineCounter, "of function", function
+                        print("Error: duplicate label", label, "on line", lineCounter, "of function", function)
                         raise
                         
                     functionLabelDictionary[function][label] = lineCounter

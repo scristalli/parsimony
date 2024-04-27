@@ -129,42 +129,42 @@ class SingleTapeTuringMachine(object):
 
             if state.isSimpleState():
                 if state.stateName == "ERROR":
-                    print "Turing machine threw error!"
+                    print("Turing machine threw error!")
                     halted = True
                     break
 
                 if state.stateName == "ACCEPT":
-                    print "Turing machine accepted after", stepCounter, "steps."
-                    print tape.length(), "squares of memory were used."
+                    print("Turing machine accepted after", stepCounter, "steps.")
+                    print(tape.length(), "squares of memory were used.")
                     halted = True
                     break
 
                 if state.stateName == "REJECT":
-                    print "Turing machine rejected after", stepCounter, "steps."
-                    print tape.length(), "squares of memory were used."
+                    print("Turing machine rejected after", stepCounter, "steps.")
+                    print(tape.length(), "squares of memory were used.")
                     halted = True
                     break
 
                 if state.stateName == "HALT":
-                    print "Turing machine halted after", stepCounter, "steps."
-                    print tape.length(), "squares of memory were used."
+                    print("Turing machine halted after", stepCounter, "steps.")
+                    print(tape.length(), "squares of memory were used.")
                     halted = True
                     break
 
                 if state.stateName == "OUT":
-                    print "Turing machine execution incomplete: reached out state."
-                    print "Perhaps this Turing machine wants to be melded with another machine."
+                    print("Turing machine execution incomplete: reached out state.")
+                    print("Perhaps this Turing machine wants to be melded with another machine.")
 
             state, write, headmove = state.transitionFunc(ordsymbol)
             ordsymbol = tape.writeSymbolMoveAndRead(write, headmove)
 
         if not halted:
-            print "Turing machine ran for", numSteps, "steps without halting."
+            print("Turing machine ran for", numSteps, "steps without halting.")
 
     def printTape(self, state, start, end, output):
         if output == None:
 
-            print state.stateName
+            print(state.stateName)
 
             self.tape.printTape(start, end)
 #           print "--------------------------------------"

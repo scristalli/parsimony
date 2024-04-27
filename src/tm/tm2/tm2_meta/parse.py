@@ -25,31 +25,31 @@ def parse(filename):
         rulename = rulename.replace('.', '$')
         a_next = a_next.replace('.', '$')
         b_next = b_next.replace('.', '$')
-        print '%s: s++;' % rulename
+        print('%s: s++;') % rulename
         if a_tape == 'a' and b_tape == 'b' and (a_next, a_move) == (b_next, b_move):
             if a_move == 'R':
-                print 'p++;'
+                print('p++;')
             elif a_move == 'L':
-                print 'p--;'
-            print 'goto %s;' % a_next
+                print('p--;')
+            print('goto %s;') % a_next
         else:
-            print 'if(*p){'
+            print('if(*p){')
             if b_tape == 'a':
-                print '*p=0;'
+                print('*p=0;')
             if b_move == 'R':
-                print 'p++;'
+                print('p++;')
             elif b_move == 'L':
-                print 'p--;'
-            print 'goto %s;' % b_next
-            print '}else{'
+                print('p--;')
+            print('goto %s;') % b_next
+            print('}else{')
             if a_tape == 'b':
-                print '*p=1;'
+                print('*p=1;')
             if a_move == 'R':
-                print 'p++;'
+                print('p++;')
             elif a_move == 'L':
-                print 'p--;'
-            print 'goto %s;' % a_next
-            print '}'
+                print('p--;')
+            print('goto %s;') % a_next
+            print('}')
 
     assert len(seen) == num_states
     seen.add('ERROR')

@@ -407,7 +407,7 @@ class State:
 		try:
 			assert headMove in ["L", "R", "-"]
 		except:
-			print "Unacceptable! headMove was", headMove
+			print("Unacceptable! headMove was", headMove)
 			raise
 		self.headMoveDict[symbol] = headMove
 			
@@ -430,7 +430,7 @@ class State:
 		try:
 			assert headMove in ["L", "R", "-"]
 		except:
-			print "Unacceptable! Headmove was", headMove
+			print("Unacceptable! Headmove was", headMove)
 			raise
             
 		for symbol in self.alphabet:
@@ -453,8 +453,8 @@ class State:
 		try:
 			return self.nextStateDict[symbol].stateName
 		except KeyError:
-			print "Error: I, state", self.stateName, "don't know about symbol", symbol
-			print "My alphabet is", self.alphabet
+			print("Error: I, state", self.stateName, "don't know about symbol", symbol)
+			print("My alphabet is", self.alphabet)
 			raise
 
 	def getHeadMove(self, symbol):
@@ -464,8 +464,8 @@ class State:
 		try:
 			return self.writeDict[symbol]		
 		except KeyError:
-			print "Error: I, state", self.stateName, "don't know about symbol", symbol
-			print "My alphabet is", self.alphabet
+			print("Error: I, state", self.stateName, "don't know about symbol", symbol)
+			print("My alphabet is", self.alphabet)
 			raise
 	
 	def isState(self):
